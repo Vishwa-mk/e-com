@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .profile-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .profile-section {
+            margin-bottom: 20px;
+        }
+        .profile-section h3 {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        .profile-info p {
+            margin: 5px 0;
+            color: #333;
+        }
+        .edit-profile-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .edit-profile-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+
+        <div class="profile-section">
+            <h3>Personal Information</h3>
+            <div class="profile-info">
+                <p><strong>Name:</strong> xyz</p>
+                <p><strong>Email:</strong> xyz@gmail.com</p>
+                <p><strong>Phone:</strong> +1234567890</p>
+                <p><strong>Address:</strong> 123 Main St,_city_</p>
+            </div>
+        </div>
+        <div class="profile-section">
+            <h3>Account Details</h3>
+            <div class="profile-info">
+                <p><strong>Member Since:</strong> January 2023</p>
+                <p><strong>Total Orders:</strong> 12</p>
+                <p><strong>Preferred Payment Method:</strong> Visa Ending in 1234</p>
+            </div>
+        </div>
+        <div class="profile-section">
+            <h3>Recent Orders</h3>
+            <div class="profile-info">
+                <p><strong>Order ID:</strong> 98765</p>
+                <p><strong>Date:</strong> 2024-10-20</p>
+                <p><strong>Status:</strong> Shipped</p>
+                <hr>
+                <p><strong>Order ID:</strong> 98764</p>
+                <p><strong>Date:</strong> 2024-09-15</p>
+                <p><strong>Status:</strong> Delivered</p>
+            </div>
+        </div>
+
+        <a href="/edit_profile" class="edit-profile-btn">Edit Profile</a>
+    </div>
+</body>
+</html>
