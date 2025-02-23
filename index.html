@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="icon.png">
+  <script src="navigation.js"></script>
   <title>E-com</title>
   <style>
     * {
@@ -33,12 +35,12 @@
       border-radius: 5px;
       padding: 15px;
     }
-    .main-nav, .user-nav {
+    .main-nav {
       display: flex;
       gap: 15px;
       align-items: center;
     }
-    .main-nav a, .user-nav a {
+    .main-nav a{
       text-decoration: none;
       font-weight: bold;
       padding: 10px;
@@ -57,9 +59,6 @@
       padding: 8px;
       border-radius: 5px;
       border: 1px solid #ccc;
-    }
-    .user-nav a {
-      color: white;
     }
     .product-container {
       display: grid;
@@ -142,20 +141,12 @@
   <div class="container">
     <div class="main-nav">
       <nav>
-        <a href="#">Home</a>
-        <a href="#">Dress Collection</a>
-        <a href="#">Grocery</a>
-        <a href="#">Electronics</a>
+        <a href="cart.html">Cart</a>
+        <a href="payment.html">Payment</a>
+        <a href="profile.html">Profile</a>
       </nav>
       <div class="search-bar">
         <input type="text" placeholder="Search...">
-      </div>
-      <div class="user-nav">
-        <nav>
-          <a href="profile.html">Your Profile</a>
-          <a href="cart.html">Cart</a>
-          <a href="payment.html">Epay</a>
-        </nav>
       </div>
     </div>
   </div>
