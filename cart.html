@@ -3,60 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="navigation.js"></script>
+    <link rel="icon" href="icon.png">
     <title>Add to Cart</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f9f9f95c;
+            /* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Body Background */
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(to right, #ece9e6, #ffffff);
+    }
+
+    /* Navigation Bar */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #007bff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .main-nav nav {
+        display: flex;
+        gap: 20px;
+    }
+
+    .main-nav a {
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 15px;
+        color: white;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .main-nav a:hover {
+        color: #ffeb3b;
+    }
+
+    /* Search Bar */
+    .search-bar {
+        flex-grow: 1;
+        text-align: right;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 250px;
+    }
+
+    /* Centered Container */
+    .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 450px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 80px; /* To avoid overlapping with navbar */
+    }
+
+    /* Page Title */
+    h2 {
+        text-align: center;
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Buttons */
+    .button {
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease-in-out;
+        margin-top: 10px;
+    }
+
+    .button:hover {
+        background: #0056b3;
+    }
+
+    /* Profile Page Styles */
+    .profile-container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-section {
+        margin-bottom: 20px;
+    }
+
+    .profile-section h3 {
+        color: #007bff;
+        font-size: 18px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+    }
+
+    .profile-info p {
+        margin: 5px 0;
+        color: #444;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
         }
-        .cart-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .cart-container h2 {
-            text-align: center;
-            color: #333;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .form-group select, .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .add-to-cart-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            border: none;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .add-to-cart-btn:hover {
-            background-color: #0056b3;
-        }
+    }
+
     </style>
 </head>
 <body>
+    <div class="main-nav">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="cart.html">Cart</a>
+          <a href="payment.html">Payment</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+        <div class="search-bar">
+          <input type="text" placeholder="Search...">
+        </div>
+    </div>
     <div class="cart-container">
         <h2>Add to Cart</h2>
         <form action="/add_to_cart" method="POST">
