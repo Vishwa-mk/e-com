@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to E-Commerce</title>
+    <style>
+            /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Background Animation */
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+        animation: gradientBG 5s infinite alternate;
+        text-align: center;
+    }
+
+    /* Container */
+    .container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        max-width: 500px;
+        animation: popIn 1s ease-out;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Slide Animation */
+    .slide {
+        display: none;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    /* Heading Animation */
+    h1 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 10px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Paragraph */
+    p {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 20px;
+        animation: slideIn 1s ease-in-out;
+    }
+
+    /* Options */
+    .options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Button */
+    .btn {
+        padding: 12px 25px;
+        font-size: 18px;
+        color: white;
+        background: #ff4081;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+        animation: bounce 2s infinite alternate;
+        margin-top: 15px;
+    }
+
+    .btn:hover {
+        background: #d81b60;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes popIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes bounce {
+        from { transform: translateY(0); }
+        to { transform: translateY(-5px); }
+    }
+
+    @keyframes gradientBG {
+        from { background: linear-gradient(120deg, #ff9a9e, #fad0c4); }
+        to { background: linear-gradient(120deg, #fbc2eb, #a6c1ee); }
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Slide 1: Welcome Message -->
+        <div class="slide active" id="slide1">
+            <h1 class="fade-in">Hi, Welcome to Our Store! 🛍️</h1>
+            <p class="slide-in">Discover the best products at unbeatable prices.</p>
+            <button class="btn" onclick="nextSlide()">Next</button>
+        </div>
+
+        <!-- Slide 2: Choose Product Category -->
+        <div class="slide" id="slide2">
+            <h1>What are you looking for? 🧐</h1>
+            <div class="options">
+                <button class="btn category" onclick="selectCategory('clothing')">Clothing 👕</button>
+                <button class="btn category" onclick="selectCategory('electronics')">Electronics 📱</button>
+                <button class="btn category" onclick="selectCategory('grocery')">Grocery 🛒</button>
+            </div>
+        </div>
+
+        <!-- Slide 3: Product Recommendations -->
+        <div class="slide" id="slide3">
+            <h1>Recommended for You 🎯</h1>
+            <p id="recommendation">Please select a category first.</p>
+            <button class="btn" onclick="redirectToMain()">Go to Store</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        let selectedCategory = '';
+
+        function nextSlide() {
+            document.getElementById(`slide${currentSlide}`).classList.remove('active');
+            currentSlide++;
+            document.getElementById(`slide${currentSlide}`).classList.add('active');
+        }
+
+        function selectCategory(category) {
+            selectedCategory = category;
+            let recommendationText = '';
+
+            if (category === 'clothing') {
+                recommendationText = 'Check out our trendy Kannada T-shirts and stylish wear!';
+            } else if (category === 'electronics') {
+                recommendationText = 'Get the latest Fossil watches and high-tech gadgets!';
+            } else if (category === 'grocery') {
+                recommendationText = 'Fresh groceries delivered at your doorstep!';
+            }
+
+            document.getElementById('recommendation').innerText = recommendationText;
+            nextSlide();
+        }
+
+        function redirectToMain() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
